@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation - Location de Véhicules
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5" style="width: 75%;">
+
+        <div class="mb-4 p-4 bg-light">
+            <h2>Informations sur le véhicule</h2>
+            <p><strong>Marque :</strong> {{ vehicule.name }}</p>
+            <p><strong>Type :</strong> {{ vehicule.type }}</p>
+            <p><strong>Capacité :</strong> {{ vehicule.capacity }} passagers</p>
+            <p><strong>Tarif de location :</strong> {{ vehicule.price }} € par jour</p>
+
+			<h2>Formulaire de Réservation</h2>
+			<form method="post">
+				<div class="mb-3">
+					<label for="prenom" class="form-label">Prénom :</label>
+					<input type="text" class="form-control" id="prenom" name="prenom" required>
+				</div>
+				<div class="mb-3">
+					<label for="nom" class="form-label">Nom :</label>
+					<input type="text" class="form-control" id="nom" name="nom" required>
+				</div>
+				<div class="mb-3">
+					<label for="adresse" class="form-label">Adresse :</label>
+					<textarea class="form-control" id="adresse" name="adresse" rows="2" required></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="adresse-compl" class="form-label">Adresse  complémentaire:</label>
+					<textarea class="form-control" id="adresse" name="adresse" rows="1"></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="code-postal" class="form-label">Code Postal :</label>
+					<input type="text" class="form-control" id="code-postal" name="code-postal" required>
+				</div>
+				<div class="mb-3">
+					<label for="ville" class="form-label">Ville :</label>
+					<input type="text" class="form-control" id="ville" name="ville" required>
+				</div>
+				<div class="mb-3">
+					<label for="pays" class="form-label">Pays :</label>
+					<input type="text" class="form-control" id="pays" name="pays" required>
+				</div>
+				<div class="mb-3">
+					<label for="telephone" class="form-label">Téléphone :</label>
+					<input type="text" class="form-control" id="telephone" name="telephone" required>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">E-mail :</label>
+					<input type="email" class="form-control" id="email" name="email" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Réserver</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

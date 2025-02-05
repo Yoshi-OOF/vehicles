@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Véhicules - Location de Véhicules{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Liste des Véhicules</h1>
+
+{% for vehicule in vehicules %}
+    <div class="row mb-3 p-3" style="background-color: #fff; border: 1px solid #ddd; border-radius: 5px;">
+        <div class="col-md-3 d-flex align-items-center justify-content-center">
+            <img 
+                src="{{ asset(vehicule.image) }}" 
+                alt="{{ vehicule.name }}" 
+                class="img-fluid" 
+                style="max-height: 100px;"
+            >
+        </div>
+
+        <div class="col-md-9">
+            <h4>{{ vehicule.name }}</h4>
+            <p>Type : {{ vehicule.type }}</p>
+            <p>Capacité : {{ vehicule.capacity }} passagers</p>
+            <p>Tarif de location : {{ vehicule.price }} € par jour</p>
+
+            <a class="btn btn-primary" href="{{ path('app_reserve', { id: vehicule.id }) }}">Réservation</a>
+            <a class="btn btn-secondary" href="{{ path('app_details', { id: vehicule.id }) }}">Détails</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

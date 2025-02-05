@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Location de Véhicules{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Recherchez votre véhicule</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 search-section">
+            <form>
+                <div class="mb-3">
+                    <label for="dateDebut" class="form-label">Date de début :</label>
+                    <input type="text" class="form-control" id="dateDebut" placeholder="jj / mm / aaaa">
+                </div>
+
+                <div class="mb-3">
+                    <label for="dateFin" class="form-label">Date de fin :</label>
+                    <input type="text" class="form-control" id="dateFin" placeholder="jj / mm / aaaa">
+                </div>
+
+                <div class="mb-3">
+                    <label for="typeVehicule" class="form-label">Type de véhicule :</label>
+                    <select class="form-select" id="typeVehicule">
+                        <option value="Compact">Compact</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Berline">Berline</option>
+                        <option value="Monospace">Monospace</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Rechercher</button>
+            </form>
+
+            <div class="featured-vehicles">
+                <h2>Véhicules en Vedette</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

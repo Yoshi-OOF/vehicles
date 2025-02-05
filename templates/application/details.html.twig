@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation - Location de Véhicules{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Informations sur le véhicule</h2>
+
+    <div class="mb-4 p-4 bg-light rounded shadow-sm">
+        <img 
+            src="{{ asset(vehicule.image) }}" 
+            alt="{{ vehicule.name }}" 
+            class="img-fluid" 
+            style="max-height: 100px;"
+        >
+        <p><strong>Marque :</strong> {{ vehicule.name }}</p>
+        <p><strong>Type :</strong> {{ vehicule.type }}</p>
+        <p><strong>Capacité :</strong> {{ vehicule.capacity }} passagers</p>
+        <p><strong>Tarif de location :</strong> {{ vehicule.price }} € par jour</p>
+        <a href="{{ path('app_reserve', { id: vehicule.id }) }}" class="btn btn-primary">Réserver</a>
+    </div>
+</div>
+
+{% endblock %}

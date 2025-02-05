@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+accueil_route:
+    path: /accueil
+    controller: App\Controller\ApplicationController:accueilMethod
+
+liste_route:
+    path: /liste
+    controller: App\Controller\ApplicationController::listeMethod
