@@ -2,6 +2,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\TypeVehicle;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'vehicle')]
@@ -18,8 +19,9 @@ class Vehicle
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: 'string', length: 100)]
-    private ?string $type = null;
+    #[ORM\ManyToOne(targetEntity: TypeVehicle::class)]
+    #[ORM\JoinColumn(nullable: true)] // Passage à nullable pour éviter l'erreur sur les données existantes
+    private ?TypeVehicle $typeVehicle = null;
 
     #[ORM\Column(type: 'integer')]
     private ?int $capacity = null;
@@ -53,14 +55,14 @@ class Vehicle
         $this->name = $name;
         return $this;
     }
-    
-    public function getType(): ?string 
+
+    public function getTypeVehicle(): ?TypeVehicle
     {
-        return $this->type;
+        return $this->typeVehicle;
     }
-    public function setType(string $type): self 
+    public function setTypeVehicle(TypeVehicle $typeVehicle): self
     {
-        $this->type = $type;
+        $this->typeVehicle = $typeVehicle;
         return $this;
     }
     

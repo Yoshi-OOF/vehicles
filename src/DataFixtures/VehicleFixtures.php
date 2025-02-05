@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Vehicle;
+use App\Entity\TypeVehicle;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -78,10 +79,15 @@ class VehicleFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         foreach ($this->vehicles as $data) {
+            // Créer le type de véhicule à partir du champ "type"
+            $typeVehicle = new TypeVehicle();
+            $typeVehicle->setName($data['type']);
+            $manager->persist($typeVehicle);
+
             $vehicle = new Vehicle();
             $vehicle->setImage($data['image'])
                     ->setName($data['name'])
-                    ->setType($data['type'])
+                    ->setTypeVehicle($typeVehicle)
                     ->setCapacity($data['capacity'])
                     ->setPrice($data['price']);
             $manager->persist($vehicle);

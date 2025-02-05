@@ -4,14 +4,24 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-5" style="width: 75%;">
+	<div class="container mt-5" style="width: 75%;">
 
-        <div class="mb-4 p-4 bg-light">
-            <h2>Informations sur le véhicule</h2>
-            <p><strong>Marque :</strong> {{ vehicule.name }}</p>
-            <p><strong>Type :</strong> {{ vehicule.type }}</p>
-            <p><strong>Capacité :</strong> {{ vehicule.capacity }} passagers</p>
-            <p><strong>Tarif de location :</strong> {{ vehicule.price }} € par jour</p>
+		<div class="mb-4 p-4 bg-light">
+			<h2>Informations sur le véhicule</h2>
+			<p>
+				<strong>Marque :</strong>
+				{{ vehicule.name }}</p>
+			<p>
+				<strong>Type :</strong>
+				{{ vehicule.typeVehicle.name }}</p>
+			<p>
+				<strong>Capacité :</strong>
+				{{ vehicule.capacity }}
+				passagers</p>
+			<p>
+				<strong>Tarif de location :</strong>
+				{{ vehicule.price }}
+				€ par jour</p>
 
 			<h2>Formulaire de Réservation</h2>
 			<form method="post">
