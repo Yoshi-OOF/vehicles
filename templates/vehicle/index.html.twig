@@ -1,0 +1,36 @@
+{# Flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+
+<div class="actions">
+    <a href="{{ path('vehicle_add') }}" class="btn">Ajouter un véhicule</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Capacité</th>
+            <th>Prix par jour</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.name }}</td>
+                <td>{{ vehicle.capacity }}</td>
+                <td>{{ vehicle.price }}</td>
+                <td>
+                    <a href="{{ path('vehicle_edit', {id: vehicle.id}) }}" class="btn">Modifier</a>
+                    <a href="{{ path('vehicle_delete', {id: vehicle.id}) }}" 
+                       class="btn"
+                       onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
